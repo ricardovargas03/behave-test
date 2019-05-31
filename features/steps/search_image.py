@@ -1,6 +1,9 @@
 from behave import *
 from pynput.keyboard import Key
+import os
 import time
+
+
 @given("I open google images")
 def open_google_image(context):
 
@@ -23,14 +26,18 @@ def choose_image(context, number):
 @then('I save the image with desire file "{name}"')
 def save_image(context, name):
 
+    directory = os.getcwd()
     context.action.context_click(context.img).perform()
     context.keyboard.press("v")
     context.keyboard.release("v")
+
     # wait for save window
     time.sleep(1)
-    context.keyboard.type(name)
+    context.keyboard.type(directory + '/images/' + name)
     context.keyboard.press(Key.enter)
     context.keyboard.release(Key.enter)
+    time.sleep(1)
+    assert (os.path.isfile(directory + '/images/' + name + '.jpeg')), "image not successfully saved"
 
 
 
