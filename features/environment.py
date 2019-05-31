@@ -1,5 +1,7 @@
 from selenium import webdriver
 from webdriver_manager.chrome import ChromeDriverManager
+from selenium.webdriver import ActionChains
+from pynput.keyboard import Controller
 
 
 def before_all(context):
@@ -15,6 +17,8 @@ def before_scenario(context, scenario):
     context.driver = webdriver.Chrome(ChromeDriverManager().install())
     context.driver.maximize_window()
     context.driver.implicitly_wait(60)
+    context.action = ActionChains(context.driver)
+    context.keyboard = Controller()
 
 
 def after_scenario(context, scenario):
