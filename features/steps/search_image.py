@@ -33,7 +33,7 @@ def save_image(context, name):
 
     # wait for save window
     time.sleep(2)
-    context.keyoard.type(directory + '/images/' + name)
+    context.keyboard.type(directory + '/images/' + name)
     context.keyboard.press(Key.enter)
     context.keyboard.release(Key.enter)
     time.sleep(2)
