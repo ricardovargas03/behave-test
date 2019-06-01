@@ -28,8 +28,10 @@ def save_image(context, name):
 
     directory = os.getcwd()
     context.action.context_click(context.img).perform()
-    context.keyboard.press("v")
-    context.keyboard.release("v")
+    context.keyboard.press("Q")
+    context.keyboard.release("Q")
+    context.keyboard.press(Key.enter)
+    context.keyboard.release(Key.enter)
 
     # wait for save window
     time.sleep(2)
