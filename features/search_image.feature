@@ -11,4 +11,4 @@ Feature: Search koombea on google images
 
      Examples:
      |  word    |  number |     name       |
-     |  Koombea |    3    |  koombea_team  |
+     |  Koombea |    3    |  koombeateam  |
